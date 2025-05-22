@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Caesar Cipher</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <div id="toast" class="toast"></div>
+   <div class="container">
+      <div id="dark-mode-toggle">
+         Dark Mode
+         <label class="switch">
+            <input type="checkbox" id="dark-toggle">
+            <span class="slider"></span>
+         </label>
+      </div>
+      <div id="heading-container">
+         <h1>CAESAR CIPHER</h1>
+      </div>
+      <div id="main-container">
+         <!-- Controls -->
+         <div class="box controls-box">
+            <div class="heading">
+               <h2>Controls</h2>
+            </div>
+            <form id="controls">
+               <!-- Radio buttons -->
+               <div class="row">
+                  <div>
+                     <input type="radio" name="code" id="encode" value="encode" checked />
+                     <label for="encode">Encode</label>
+                  </div>
+                  <div>
+                     <input type="radio" name="code" id="decode" value="decode" />
+                     <label for="decode">Decode</label>
+                  </div>
+               </div>
+
+               <!-- Shift and Modulo -->
+               <div class="row">
+                  <div>
+                     <label for="shift-input">Shift Key</label>
+                     <input type="text" id="shift-input" placeholder="Enter key" maxlength="4" />
+                  </div>
+                  <div>
+                     <label for="mod-input">Modulo</label>
+                     <input type="text" id="mod-input" placeholder="Enter Modulo" maxlength="4" />
+                  </div>
+               </div>
+
+               <!-- Alphabet -->
+               <div class="column">
+                  <label for="alphabet-input">Alphabet</label>
+                  <input type="text" id="alphabet-input" value="abcdefghijklmnopqrstuvwxyz" />
+               </div>
+
+               <!-- Letter Case -->
+               <div class="column">
+                  <label for="letter-case">Letter Case</label>
+                  <select id="letter-case">
+                     <option value="1">Maintain Case</option>
+                     <option value="2">Lower Case</option>
+                     <option value="3">Upper Case</option>
+                  </select>
+               </div>
+
+               <!-- Foreign Chars -->
+               <div class="column">
+                  <label for="foreign-chars">Foreign Chars</label>
+                  <select id="foreign-chars">
+                     <option value="1">Remove</option>
+                     <option value="2">Ignore</option>
+                  </select>
+               </div>
+            </form>
+         </div>
+
+         <!-- Input/Output -->
+         <div class="box">
+            <h2 class="heading" id="input-heading">Plaintext</h2>
+            <textarea placeholder="Enter plaintext" rows="5" id="input-text"></textarea>
+            <h2 class="heading" id="output-heading">Ciphertext</h2>
+            <textarea readonly placeholder="Output" rows="5" id="output-text"></textarea>
+            <button id="copy-btn">Copy Text</button>
+         </div>
+
+         <!-- Frequency Charts -->
+         <div class="box">
+            <h2 class="heading">Input Frequency</h2>
+            <canvas id="input-chart" width="320" height="200"></canvas>
+            <h2 class="heading">Output Frequency</h2>
+            <canvas id="output-chart" width="320" height="200"></canvas>
+         </div>
+
+         <!-- Cipher Crack -->
+         <div class="box">
+            <h2 class="heading">Cipher Crack</h2>
+            <button id="crack-btn">Crack Cipher</button>
+            <textarea id="crack-input" placeholder="Enter ciphertext to crack"></textarea>
+            <textarea id="crack-output" readonly placeholder="Decrypted possibilities will appear here..."></textarea>
+         </div>
+      </div>
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script src="caesar.js"></script>
+</body>
+</html>

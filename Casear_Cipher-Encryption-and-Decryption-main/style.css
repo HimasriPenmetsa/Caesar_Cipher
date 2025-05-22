@@ -1,0 +1,269 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8fafc;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* Position dark toggle to top-right */
+#dark-mode-toggle {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+/* Toggle switch style */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px; width: 18px;
+    left: 4px; bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+h1 {
+    font-size: 3rem;
+    color: #0B7CDB;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#main-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.box, .controls-box {
+    background-color: #fff;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border-radius: 8px;
+}
+
+
+.box .heading {
+    border-bottom: 2px solid #dce1e6;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.box h2 {
+    color: #0B7CDB;
+}
+
+#controls {
+    width: 100%;
+}
+
+#controls .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+input[type="radio"]:checked+label {
+    color: #0B7CDB;
+    font-weight: 500;
+}
+
+#shift-input, #mod-input, #alphabet-input {
+    padding: 8px;
+    border: 1px solid #dce1e6;
+    border-radius: 5px;
+    width: 80%;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+select {
+    padding: 8px;
+    border: 1px solid #dce1e6;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+}
+
+textarea {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    border: 1px solid #dce1e6;
+    border-radius: 5px;
+    resize: none;
+    font-size: 16px;
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
+    border-color: #0B7CDB;
+}
+
+label {
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+#copy-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #0B7CDB;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+#copy-btn:hover {
+    background-color: #0B7CDB;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode .box {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+    border: 1px solid #333;
+}
+
+.dark-mode textarea,
+.dark-mode input,
+.dark-mode select {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+canvas {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+body.dark-mode canvas {
+    background-color: #1e1e1e !important; /* match box background */
+    border-color: #444;
+    color: #f1f1f1;
+}
+
+#crack-output {
+    width: 100%;
+    height: 250px;
+    padding: 10px;
+    border: 1px solid #dce1e6;
+    border-radius: 5px;
+    resize: none;
+    margin-top: 10px;
+}
+
+#crack-btn {
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    background-color: #0B7CDB;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+    #main-container {
+        grid-template-columns: 1fr; /* one column only */
+    }
+    .box, .controls-box {
+        width: 100%;
+    }
+}
+
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #f44336;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    padding: 16px;
+    position: fixed;
+    z-index: 9999;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    font-size: 16px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: opacity 0.5s, bottom 0.5s;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 50px;
+}
+
